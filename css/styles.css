@@ -163,6 +163,10 @@ body {
   font-weight: 500;
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 300ms;
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -208,6 +212,10 @@ body {
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 .site-contact .link:not(:last child) {
   margin-right: 30px;
@@ -424,10 +432,15 @@ body {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--icon-color);
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 .socials-link:hover,
 .socials-link:focus {
   background-color: #2196f3;
+  color: var(--additional-color);
 }
 
 .socials-icon {
@@ -487,6 +500,10 @@ body {
   border-radius: 4px;
   background-color: #ffffff;
   color: var(--icon-color);
+  transition-property: color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 .clients-icon {
   fill: currentColor;
@@ -549,6 +566,10 @@ address {
   line-height: calc(24 / 14);
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 
 .footer-contact {
@@ -631,6 +652,10 @@ address {
   border: none;
   padding: 6px 22px;
   border-radius: 4px;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 .portfolio-list .portfolio-list-button:hover,
 .portfolio-list .portfolio-list-button:focus {
@@ -648,6 +673,10 @@ address {
 }
 .portfolio-examples-link {
   display: block;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 .portfolio-examples-link:hover,
 .portfolio-examples-link:focus {
@@ -689,10 +718,13 @@ address {
 
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
 }
 .portfolio-examples-link:hover .portfolio-overlay {
-  opacity: 1;
-  transform: ;
+  animation: left-to-right 1000ms ease 200ms 1 both;
 }
 .portfolio-overlay-text {
   text-align: start;
@@ -726,6 +758,9 @@ address {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.portfolio-try {
+  animation: left-to-right 100ms ease 200ms 1 both;
+}
 .modal-button {
   position: absolute;
   top: 0;
@@ -735,4 +770,18 @@ address {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+/* animation */
+
+@keyframes left-to-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
