@@ -724,7 +724,7 @@ address {
   transition-delay: 100ms;
 }
 .portfolio-examples-link:hover .portfolio-overlay {
-  animation: left-to-right 1000ms ease 200ms 1 both;
+  animation: bottom-to-top 1000ms ease 200ms 1 both;
 }
 .portfolio-overlay-text {
   text-align: start;
@@ -774,14 +774,14 @@ address {
 
 /* animation */
 
-@keyframes left-to-right {
+@keyframes bottom-to-top {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateY(100px);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
 }
