@@ -179,7 +179,7 @@ body {
   position: relative;
 }
 
-.current:hover::after {
+.current::after {
   content: '';
   position: absolute;
   bottom: 0px;
@@ -272,6 +272,7 @@ body {
   letter-spacing: 0.06em;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .hero-button:hover,
@@ -423,28 +424,28 @@ body {
   align-items: center;
   gap: 10px;
 }
-.socials-link {
+.socials-link-main {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--icon-color);
+
   transition-property: background-color, color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 100ms;
 }
-.socials-link:hover,
-.socials-link:focus {
-  background-color: #2196f3;
-  color: var(--additional-color);
+.socials-icon-main {
+  fill: var(--icon-color);
 }
-
-.socials-icon {
-  fill: currentColor;
+.socials-link-main:hover,
+.socials-link-main:focus {
+  background-color: var(--accent-color);
+}
+.socials-link-main:hover .socials-icon-main {
+  fill: var(--additional-color);
 }
 
 /* оформлення флекс для секції наша команда */
@@ -602,6 +603,28 @@ address {
 .socials-footer-list .socials-link {
   color: var(--additional-color);
 }
+.socials-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+.socials-icon {
+  fill: var(--additional-color);
+}
+.socials-link:hover,
+.socials-link:focus {
+  background-color: #2196f3;
+  /* color: var(--additional-color); */
+}
 
 /* css для сторінки Портфоліо */
 /*  пробую початок */
@@ -701,7 +724,7 @@ address {
   color: var(--secondary-text-color);
 }
 
-.portfolio-examples-link {
+.portfolio-thumb {
   position: relative;
 }
 .portfolio-overlay {
@@ -710,25 +733,32 @@ address {
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 294px;
+  height: 100%;
   padding-top: 63px;
   padding-bottom: 63px;
   padding-left: 24px;
   padding-right: 24px;
 
   background-color: rgba(33, 150, 243, 0.9);
-  opacity: 0;
-  transition-property: opacity;
+  /* opacity: 0; */
+  transform: translateY(100%);
+  transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 100ms;
 }
 .portfolio-examples-link:hover .portfolio-overlay {
+  transform: translateY(0%);
   animation: bottom-to-top 1000ms ease 200ms 1 both;
 }
+.portfolio-thumb {
+  overflow: hidden;
+}
 .portfolio-overlay-text {
-  text-align: start;
-  width: 322px;
+  display: flex;
+  align-items: center;
+
+  /* width: 322px; */
 
   font-style: normal;
   font-size: 18px;
@@ -745,6 +775,15 @@ address {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 100ms;
+}
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 .modal {
   width: 528px;
